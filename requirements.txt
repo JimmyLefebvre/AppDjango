@@ -1,0 +1,9 @@
+asgiref==3.3.4
+Django==3.2
+django-cors-headers==3.7.0
+django-easy-timezones==0.8.0
+djangorestframework==3.12.4
+ipaddress==1.0.16
+pygeoip==0.3.2
+pytz==2021.1
+sqlparse==0.4.1
