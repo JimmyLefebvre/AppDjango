@@ -1,4 +1,11 @@
+import datetime
+
 from django.db import models
+
+def default_datetime():
+    now = datetime.datetime.now()
+    now.replace(microsecond=0)
+    return now
 
 
 class Base(models.Model):
@@ -12,7 +19,7 @@ class Base(models.Model):
     espece = models.CharField(max_length=50)
     graine_objectif = models.IntegerField()
     remarque = models.CharField(max_length=500)
-    modifier_le = models.DateTimeField(auto_now=True)
+    modifier_le = models.DateTimeField(db_index=True, auto_now=True)
 
     def __str__(self):
         return str(self.code_lot_plante)
