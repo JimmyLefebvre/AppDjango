@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework import serializers, fields
 from .models import Base
 
 
@@ -6,7 +6,7 @@ class BaseSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Base
-        fields = ("code_accession", "code_lot_plante", "lieu", "parcelle", "nom_lot", "nombre_plante", "lot_origine", "espece", "graine_objectif", "remarque")
+        fields = ("code_accession", "code_lot_plante", "lieu", "parcelle", "nom_lot", "nombre_plante", "lot_origine", "espece", "graine_objectif", "remarque", "modifier_le")
 
     def get_or_create(self):
         defaults = self.validated_data.copy()
