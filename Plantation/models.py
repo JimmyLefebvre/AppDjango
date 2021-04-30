@@ -7,7 +7,7 @@ class Plantation(models.Model):
     num_plante = models.CharField(max_length=1)
     type_fecondation = models.CharField(max_length=1)
     code_plante = models.CharField(max_length=25, unique=True)
-    modifier_le = models.DateTimeField(auto_now=True)
+    modifier_le = models.DateTimeField()
 
     def __str__(self):
         return str(self.code_plante)
