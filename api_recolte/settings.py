@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'Base',
     'Plantation',
-    'Recolte'
+    'Recolte',
+    'Graine'
 ]
 
 SITE_ID = 1
