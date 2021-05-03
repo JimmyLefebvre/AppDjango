@@ -3,7 +3,7 @@ from Recolte.models import Recolte
 
 
 class Graine(models.Model):
-    code_recolte = models.ForeignKey(Recolte, to_field='code_recolte', on_delete=models.CASCADE)
+    code_recolte = models.OneToOneField(Recolte, to_field='code_recolte', on_delete=models.CASCADE, unique=True)
     nombre_graine_extraite = models.IntegerField()
     modifier_le = models.DateTimeField()
 

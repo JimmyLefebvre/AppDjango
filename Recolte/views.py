@@ -32,7 +32,7 @@ def recolte_add(request):
             if serializer.is_valid():
                 instance, created = serializer.get_or_create()
             else:
-                recolte = Recolte.objects.get(code_plante=datum['code_plante'])
+                recolte = Recolte.objects.get(code_recolte=datum['code_recolte'])
                 # print(recolte.modifier_le)
                 serializer = RecolteSerializers(recolte, data=datum)
                 if serializer.is_valid():

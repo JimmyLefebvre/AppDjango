@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from django.http import JsonResponse, HttpResponseServerError
 from rest_framework.response import Response
+from django.db import connection
 
 from .models import Base
 from .serializers import BaseSerializers
@@ -13,6 +14,19 @@ def get_base(request):
         queryset = Base.objects.all()
         serializer = BaseSerializers(queryset, many=True)
         return JsonResponse(serializer.data, safe=False)
+
+
+@api_view(['GET'])
+def get_lot_graine_extraite(request, code_lot_plante):
+    if request.method == "GET":
+        sql = "SELECT sum(g.nombre_graine_extraite) as graines_total FROM Base_base b INNER JOIN " \
+              "Plantation_plantation p ON b.code_lot_plante = p.code_lot_plante_id INNER JOIN Recolte_recolte r ON " \
+              "p.code_plante = r.code_plante_id INNER JOIN Graine_graine g ON r.code_recolte = g.code_recolte_id " \
+              "WHERE b.code_lot_plante = '" + code_lot_plante + "';"
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        max_value = cursor.fetchone()[0]
+        return Response(max_value)
 
 
 @api_view(['GET', 'POST'])

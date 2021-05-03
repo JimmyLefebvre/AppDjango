@@ -6,4 +6,4 @@ class GraineAdmin(admin.ModelAdmin):
     list_display = ["id", "code_recolte", "nombre_graine_extraite", "modifier_le"]
 
 
-admin.site.register(Graine)
+admin.site.register(Graine, GraineAdmin)

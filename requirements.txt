@@ -5,6 +5,7 @@ django-easy-timezones==0.8.0
 djangorestframework==3.12.4
 ipaddress==1.0.16
 pygeoip==0.3.2
+python-dateutil==2.8.1
 pytz==2016.6
+six==1.15.0
 sqlparse==0.4.1
-python-dateutil~=2.8.1
