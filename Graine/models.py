@@ -4,6 +4,7 @@ from Recolte.models import Recolte
 
 class Graine(models.Model):
     code_recolte = models.OneToOneField(Recolte, to_field='code_recolte', on_delete=models.CASCADE, unique=True)
+    code_graine = models.CharField(max_length=25, unique=True)
     nombre_graine_extraite = models.IntegerField()
     modifier_le = models.DateTimeField()
 

@@ -17,13 +17,13 @@ def get_graines(request):
 
 
 @api_view(['GET', 'POST'])
-def recolte_add(request):
+def graine_add(request):
     global instance
     isError = False
 
     if request.method == 'POST':
         data = request.data['data']
-        print(data)
+        # print(data)
         for datum in data:
             datum['modifier_le'] = dateutil.parser.parse(datum['modifier_le'])
             datum['modifier_le'] = datum['modifier_le'].replace(tzinfo=None)
@@ -32,7 +32,7 @@ def recolte_add(request):
             if serializer.is_valid():
                 instance, created = serializer.get_or_create()
             else:
-                graine = Graine.objects.get(code_recolte=datum['code_recolte'])
+                graine = Graine.objects.get(code_graine=datum['code_graine'])
                 # print(recolte.modifier_le)
                 serializer = GraineSerializers(graine, data=datum)
                 if serializer.is_valid():
@@ -40,7 +40,7 @@ def recolte_add(request):
                     if graine.modifier_le < theDate:
                         serializer.save()
                     # else:
-                    #     print(recolte.modifier_le, " est plus récent que ", theDate)
+                    #     print(graine.modifier_le, " est plus récent que ", theDate)
                 else:
                     print(serializer.errors)
                     isError = True

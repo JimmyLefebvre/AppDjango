@@ -9,5 +9,5 @@ class PlantationSerializers(serializers.ModelSerializer):
 
     def get_or_create(self):
         defaults = self.validated_data.copy()
-        code = defaults.pop('code_lot_plante')
-        return Plantation.objects.get_or_create(code_lot_plante=code, defaults=defaults)
+        code = defaults.pop('code_plante')
+        return Plantation.objects.get_or_create(code_plante=code, defaults=defaults)

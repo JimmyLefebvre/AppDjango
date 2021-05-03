@@ -9,5 +9,5 @@ class RecolteSerializers(serializers.ModelSerializer):
 
     def get_or_create(self):
         defaults = self.validated_data.copy()
-        code = defaults.pop('code_plante')
-        return Recolte.objects.get_or_create(code_plante=code, defaults=defaults)
+        code = defaults.pop('code_recolte')
+        return Recolte.objects.get_or_create(code_recolte=code, defaults=defaults)
