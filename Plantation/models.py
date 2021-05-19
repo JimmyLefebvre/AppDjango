@@ -1,13 +1,25 @@
+import datetime
+
 from django.db import models
-from Base.models import Base
+
+def default_datetime():
+    now = datetime.datetime.now()
+    now.replace(microsecond=0)
+    return now
 
 
 class Plantation(models.Model):
-    code_lot_plante = models.ForeignKey(Base, to_field='code_lot_plante', on_delete=models.CASCADE)
-    num_plante = models.CharField(max_length=1)
-    type_fecondation = models.CharField(max_length=1)
-    code_plante = models.CharField(max_length=25, unique=True)
-    modifier_le = models.DateTimeField()
+    code_accession = models.CharField(max_length=50)
+    code_lot_plante = models.CharField(max_length=16, unique=True)
+    lieu = models.CharField(max_length=10)
+    parcelle = models.CharField(max_length=5)
+    nom_lot = models.CharField(max_length=30)
+    nombre_plante = models.IntegerField()
+    lot_origine = models.CharField(max_length=50)
+    espece = models.CharField(max_length=50)
+    graine_objectif = models.IntegerField()
+    remarque = models.CharField(max_length=500)
+    modifier_le = models.DateTimeField(db_index=True, auto_now=True)
 
     def __str__(self):
-        return str(self.code_plante)
+        return str(self.code_lot_plante)

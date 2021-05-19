@@ -1,6 +1,7 @@
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from django.http import JsonResponse
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 import dateutil.parser
 
@@ -9,6 +10,7 @@ from .serializers import GraineSerializers
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_graines(request):
     if request.method == "GET":
         queryset = Graine.objects.all()
@@ -17,6 +19,7 @@ def get_graines(request):
 
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def graine_add(request):
     global instance
     isError = False
