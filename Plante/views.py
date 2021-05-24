@@ -11,7 +11,7 @@ from .serializers import PlanteSerializers
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_plantations(request):
+def get_plante(request):
     if request.method == "GET":
         queryset = Plante.objects.all()
         serializer = PlanteSerializers(queryset, many=True)
@@ -20,7 +20,7 @@ def get_plantations(request):
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def plantation_add(request):
+def plante_add(request):
     global instance
     isError = False
 

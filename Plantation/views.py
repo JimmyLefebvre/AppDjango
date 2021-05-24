@@ -11,7 +11,7 @@ from .serializers import PlantationSerializers
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_base(request):
+def get_plantation(request):
     if request.method == "GET":
         queryset = Plantation.objects.all()
         serializer = PlantationSerializers(queryset, many=True)
@@ -34,7 +34,7 @@ def get_lot_graine_extraite(request, code_lot_plante):
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
-def base_add(request):
+def plantation_add(request):
     global instance
     isError = False
 

@@ -28,7 +28,7 @@ def recolte_add(request):
         data = request.data['data']
         # print(data)
         for datum in data:
-            print(datum)
+            # print(datum)
             datum['modifier_le'] = dateutil.parser.parse(datum['modifier_le'])
             datum['modifier_le'] = datum['modifier_le'].replace(tzinfo=None)
             # print(datum['modifier_le'])
