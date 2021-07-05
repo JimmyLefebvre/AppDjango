@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from django.http import JsonResponse
@@ -7,6 +8,7 @@ import dateutil.parser
 
 from .models import Graine
 from .serializers import GraineSerializers
+from custom.views import update_custom
 
 
 @api_view(['GET'])
@@ -50,4 +52,4 @@ def graine_add(request):
         if isError:
             return Response("Error", status=status.HTTP_404_NOT_FOUND)
         else:
-            return Response("Success", status=status.HTTP_200_OK)
+            return redirect(update_custom)

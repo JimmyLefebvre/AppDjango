@@ -15,6 +15,12 @@ then
     python manage.py makemigrations
     echo "Migrate in progress ..."
     python manage.py migrate
+    read -p "Do you want to create a super user? [Y/N]" -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      python manage.py createsuperuser
+    fi
 fi
 
 echo "It's done !"
