@@ -8,8 +8,7 @@ import dateutil.parser
 
 from .models import Graine
 from .serializers import GraineSerializers
-from custom.views import update_custom
-
+from En_cours.views import update_en_cours
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -52,4 +51,4 @@ def graine_add(request):
         if isError:
             return Response("Error", status=status.HTTP_404_NOT_FOUND)
         else:
-            return redirect(update_custom)
+            return redirect("en_cours/")

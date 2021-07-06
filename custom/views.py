@@ -8,6 +8,7 @@ from django.core import serializers
 
 
 
+
 @api_view(['GET'])
 def update_custom(request):
     isError = False
@@ -42,7 +43,5 @@ def update_custom(request):
             return Response("Error", status=status.HTTP_404_NOT_FOUND)
         else:
             return Response("Success", status=status.HTTP_200_OK)
-
-        return JsonResponse(data, safe=False)
 
 

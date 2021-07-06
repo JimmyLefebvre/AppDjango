@@ -4,7 +4,8 @@ from Plantation.views import get_plantation, plantation_add, get_lot_graine_extr
 from Plante.views import get_plante, plante_add
 from Recolte.views import get_recoltes, recolte_add
 from Graine.views import get_graines, graine_add
-from custom.views import update_custom
+from Non_fait.views import update_non_fait
+from En_cours.views import update_en_cours
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,5 +20,7 @@ urlpatterns = [
     path('graine_add/', graine_add),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
-    path('custom/', update_custom)
+    path('graine_add/en_cours/', update_en_cours),
+    path('graine_add/en_cours/non_fait/', update_non_fait),
+
 ]
