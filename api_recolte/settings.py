@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mdu($spmu!+st=9)3$jyzs#0$ytza5vbyg^p*3d^v6+*7vi@p4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.39', '127.0.0.1', '192.168.8.105', "localhost", "192.168.42.122", "192.168.42.218"]
+ALLOWED_HOSTS = ['192.168.0.39', '127.0.0.1', '192.168.8.105', "localhost", "192.168.42.122", "192.168.42.218", "192.168.1.18"]
 
 
 # Application definition
@@ -49,9 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'import_export',
-    'custom',
-    'En_cours',
-    'Non_fait'
+    'Avancement'
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True

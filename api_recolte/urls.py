@@ -4,8 +4,7 @@ from Plantation.views import get_plantation, plantation_add, get_lot_graine_extr
 from Plante.views import get_plante, plante_add
 from Recolte.views import get_recoltes, recolte_add
 from Graine.views import get_graines, graine_add
-from Non_fait.views import update_non_fait
-from En_cours.views import update_en_cours
+from Avancement.views import update_non_fait, update_en_cours
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -8,7 +8,6 @@ import dateutil.parser
 
 from .models import Graine
 from .serializers import GraineSerializers
-from En_cours.views import update_en_cours
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
