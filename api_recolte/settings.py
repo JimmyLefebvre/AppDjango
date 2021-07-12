@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'import_export',
-    'Avancement'
+    'Avancement',
+    'Access'
 ]
 
 IMPORT_EXPORT_USE_TRANSACTIONS = True

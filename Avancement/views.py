@@ -74,4 +74,5 @@ def update_non_fait(request):
         if isError:
             return Response("Error", status=status.HTTP_404_NOT_FOUND)
         else:
-            return Response("Success", status=status.HTTP_200_OK)
+            return redirect("piments/")
+
