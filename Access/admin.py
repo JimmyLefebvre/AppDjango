@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Piments, Aubergines, Tomates
+from .models import Piments, Aubergines, Tomates, Melons
 
 
 class PimentsAdmin(ImportExportModelAdmin):
@@ -16,7 +16,11 @@ class AuberginesAdmin(ImportExportModelAdmin):
 class TomatesAdmin(ImportExportModelAdmin):
     list_display = ["ID", "IDTO", "RefLieu", "Lieu", "Parcelle", "Num_plante", "Quantite", "Lot_parent", "Pollinisation", "Date_premiere_recolte", "Nombre_de_fruits_recoltes", "Remarques", "Annee", "Code_barre_lot", "Test_toBRFV"]
 
+class MelonsAdmin(ImportExportModelAdmin):
+    list_display = ["ID", "IDTO", "RefLieu", "Lieu", "Parcelle", "Num_plante", "Quantite", "Lot_parent", "Pollinisation", "Date_premiere_recolte", "Nombre_de_fruits_recoltes", "Remarques", "Annee", "Code_barre_lot", "Test_toBRFV"]
+
 
 admin.site.register(Piments, PimentsAdmin)
 admin.site.register(Aubergines, AuberginesAdmin)
 admin.site.register(Tomates, TomatesAdmin)
+admin.site.register(Melons, MelonsAdmin)

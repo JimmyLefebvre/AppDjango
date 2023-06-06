@@ -3,8 +3,8 @@ from django.shortcuts import redirect
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-from .models import Piments, Aubergines, Tomates
-from .serializers import PimentsSerializers, AuberginesSerializers, TomatesSerializers
+from .models import Piments, Aubergines, Tomates, Melons
+from .serializers import PimentsSerializers, AuberginesSerializers, TomatesSerializers, MelonsSerializers
 
 
 @api_view(['GET'])
@@ -90,6 +90,37 @@ def update_tomates(request):
         for datum in data:
             # print(datum)
             serializer = TomatesSerializers(data=datum)
+            if serializer.is_valid():
+                serializer.save()
+            else:
+                print(serializer.errors)
+                isError = True
+        if isError:
+            return Response("Error", status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response("Success", status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def update_melons(request):
+    isError = False
+
+    if request.method == "GET":
+        queryset = Melons.objects.raw("Select ROW_NUMBER() OVER ( ORDER BY Plante_plante.id) ID, Plantation_plantation.code_accession as IDTO, strftime('%Y', MIN(DATE(Recolte_recolte.modifier_le))) AS Annee, lieu as Lieu, Plante_plante.num_plante as Num_plante, Plante_plante.type_fecondation AS Pollinisation, COALESCE(SUM(Graine_graine.nombre_graine_extraite), 0) as Quantite, parcelle as Parcelle, '-' AS Lot_parent, MIN(DATE(Recolte_recolte.modifier_le)) AS Date_premiere_recolte, COALESCE(SUM(Recolte_recolte.nombre_fruit_recolter), 0) AS Nombre_de_fruits_recoltes,  replace(Plante_plante.code_plante,'TOB','TOA') AS Code_barre_lot FROM Plantation_plantation INNER JOIN Plante_plante ON Plantation_plantation.code_lot_plante = Plante_plante.code_lot_plante_id INNER JOIN Recolte_recolte ON Plante_plante.code_plante = Recolte_recolte.code_plante_id INNER JOIN Graine_graine ON Recolte_recolte.code_recolte = Graine_graine.code_recolte_id WHERE Plantation_plantation.code_lot_plante LIKE '%TO%' GROUP BY Code_barre_lot;")
+
+        serializer = MelonsSerializers(queryset, many=True)
+
+        data = serializer.data
+
+        sql = "UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='Access_melons';"
+
+        Melons.objects.all().delete()
+        cursor = connection.cursor()
+        cursor.execute(sql)
+
+        for datum in data:
+            # print(datum)
+            serializer = MelonsSerializers(data=datum)
             if serializer.is_valid():
                 serializer.save()
             else:

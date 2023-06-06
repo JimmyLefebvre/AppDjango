@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mdu($spmu!+st=9)3$jyzs#0$ytza5vbyg^p*3d^v6+*7vi@p4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.39', '127.0.0.1', '192.168.8.105', "localhost", "192.168.42.122", "192.168.42.218", "192.168.1.18", "192.168.42.218"]
+ALLOWED_HOSTS = ["147.100.168.140", "192.168.0.39", "127.0.0.1", "192.168.8.105", "localhost", "192.168.1.25", "192.168.42.218", "192.168.1.18", "192.168.42.218", "147.100.168.2"]
 
 
 # Application definition

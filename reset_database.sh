@@ -12,14 +12,14 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "Migrations in progress ..."
-    python manage.py makemigrations
+    python3 manage.py makemigrations
     echo "Migrate in progress ..."
-    python manage.py migrate
+    python3 manage.py migrate
     read -p "Do you want to create a super user? [Y/N]" -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-      python manage.py createsuperuser
+      python3 manage.py createsuperuser
     fi
 fi
 
