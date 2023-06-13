@@ -106,7 +106,7 @@ ENV/
 !**/migrations
 !**/migrations/__init__.py
 .DS_Store
-*.sqlite3
+#*.sqlite3
 *.pyc
 *.db
 *.pid
