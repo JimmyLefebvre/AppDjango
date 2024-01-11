@@ -22,8 +22,9 @@ urlpatterns = [
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('graine_add/en_cours/', update_en_cours),
     path('graine_add/en_cours/non_fait/', update_non_fait),
-    path('graine_add/en_cours/non_fait/piments/', update_piments),
-    path('graine_add/en_cours/non_fait/piments/aubergines/', update_aubergines),
-    path('graine_add/en_cours/non_fait/piments/melon/', update_melons),
-    path('graine_add/en_cours/non_fait/piments/tomates/', update_tomates)
+    path('graine_add/en_cours/non_fait/GenericPlants/', update_GenericPlants),
 ]
+
+
+    # path('graine_add/en_cours/non_fait/piments/melon/', update_melons),
+    # path('graine_add/en_cours/non_fait/piments/tomates/', update_tomates)
