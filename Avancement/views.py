@@ -74,5 +74,5 @@ def update_non_fait(request):
         if isError:
             return Response("Error", status=status.HTTP_404_NOT_FOUND)
         else:
-            return redirect("piments/")
+            return redirect("plantes/")
 
