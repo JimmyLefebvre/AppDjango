@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Piments(models.Model):
+class Plantes(models.Model):
     IDLot = models.IntegerField(primary_key=True, blank=True)
     IDPM = models.IntegerField(blank=True, null=True)
     PM = models.CharField(max_length=150)
@@ -25,25 +25,3 @@ class Piments(models.Model):
     def __str__(self):
         return str(self.Code_barre_lot)
 
-
-class Aubergines(models.Model):
-    ID = models.IntegerField(primary_key=True, blank=True)
-    CodeMM = models.CharField(max_length=150)
-    Lot_absent_jete_fini = models.CharField(max_length=20)
-    Annee = models.IntegerField()
-    Type_de_lot = models.CharField(max_length=150, blank=True, null=True)
-    Lieu = models.CharField(max_length=10)
-    Remarques = models.CharField(max_length=500, blank=True, null=True)
-    Num_plante = models.CharField(max_length=1)
-    Pollinisation = models.CharField(max_length=1)
-    Quantite = models.IntegerField()
-    Parcelle = models.CharField(max_length=50)
-    Lot_parent = models.CharField(max_length=150, blank=True, null=True)
-    Date_premiere_recolte = models.DateField()
-    Nombre_de_fruits_recoltes = models.IntegerField()
-    Code_barre_lot = models.CharField(max_length=25, unique=True)
-    Long_terme = models.CharField(max_length=50)
-    Lot_congele = models.CharField(max_length=50)
-
-    def __str__(self):
-        return str(self.Code_barre_lot)
